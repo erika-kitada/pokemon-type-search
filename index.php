@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html lang="ja">
+<?php
+if(isset($_GET['lang'])){
+  $lang = $_GET['lang'];
+}
+if(isset($_GET['lang'])){
+  if($lang == "en"){
+    echo '<html lang="en">';
+  } else {
+    echo '<html lang="zh-cmn-Hans">';
+  }
+} else {
+  echo '<html lang="ja">';
+}
+?>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pokemon Document</title>
-  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.css"/>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="./lib/jquery-ui.min.js"></script>
 <style>
@@ -79,17 +92,58 @@ fieldset {border: none;}
   </ul>
 </nav>
 <form>
+<?php
+$searchBixJa = <<< EOM
   <fieldset>
-    <legend><span class="js-lang--ja">ポケモンのタイプをしらべる</span><span class="js-lang--en">Find out the type of Pokemon</span><span class="js-lang--cn">
+    <legend><span class="js-lang--ja">ポケモンのタイプをしらべる</span></legend>
+    <div>
+      <label for="autocomplete_search">
+        <input type="search" id="autocomplete_search">
+      </label>
+      <button type="button" class="search_button"><span class="js-lang--ja">しらべる</span></button>
+    </div>
+  </fieldset>
+EOM;
+
+$searchBixEn = <<< EOM
+  <fieldset>
+    <legend><span class="js-lang--en">Find out the type of Pokemon</span></legend>
+    <div>
+      <label for="autocomplete_search">
+        <input type="search" id="autocomplete_search">
+      </label>
+      <button type="button" class="search_button"><span class="js-lang--en">Search</span></button>
+    </div>
+  </fieldset>
+EOM;
+
+$searchBixCn = <<< EOM
+  <fieldset>
+    <legend><span class="js-lang--cn">
       找出口袋妖怪的类型</span></legend>
     <div>
       <label for="autocomplete_search">
         <input type="search" id="autocomplete_search">
       </label>
-      <button type="button" class="search_button"><span class="js-lang--ja">しらべる</span><span class="js-lang--en">Search</span><span class="js-lang--cn">
+      <button type="button" class="search_button"><span class="js-lang--cn">
         搜索</span></button>
     </div>
   </fieldset>
+EOM;
+
+if(isset($_GET['lang'])){
+  $lang = $_GET['lang'];
+}
+if(isset($_GET['lang'])){
+  if($lang == "en"){
+    echo $searchBixEn;
+  } else {
+    echo $searchBixCn;
+  }
+} else {
+  echo $searchBixJa;
+}
+?>
   <div class="result"></div>
 </form>
 <script type="text/javascript">
@@ -144,22 +198,7 @@ $('.search_button').on('click', function(){
     break;
   }
 });
-//multi langage trasnform
-  $('.js-lang--ja').show();
-  $('.js-lang--en').hide();
-  $('.js-lang--cn').hide();
-  var langType = location.search;
-  if(langType.indexOf('lang=en') !== -1){
-    $('.js-lang--cn').hide();
-    $('.js-lang--ja').hide();
-    $('.js-lang--en').show();
-  } else if(langType.indexOf('lang=cn') !== -1){
-    $('.js-lang--cn').show();
-    $('.js-lang--ja').hide();
-    $('.js-lang--en').hide();
-  }
 });
-
 </script>
 </body>
 </html>
