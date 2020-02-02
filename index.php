@@ -21,6 +21,20 @@ if(isset($_GET['lang'])){
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="./lib/jquery-ui.min.js"></script>
+  <?php
+if(isset($_GET['lang'])){
+  $lang = $_GET['lang'];
+}
+if(isset($_GET['lang'])){
+  if($lang == "en"){
+    echo '<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">';
+  } else {
+    echo '<link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">';
+  }
+} else {
+  echo '<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">';
+}
+?>
 <style>
 /* init */
 html {font-size: 62.5%;}
