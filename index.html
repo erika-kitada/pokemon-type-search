@@ -20,6 +20,9 @@ body {font-family: sans-serif;}
 }
 ul, ol {list-style-type: none;}
 a {color: inherit;}
+:lang(ja){ font-family: 'Noto Sans JP', sans-serif; }
+:lang(en){ font-family: 'Noto Sans JP', sans-serif; }
+:lang(zh-cmn-Hans){ font-family: 'Noto Sans SC', sans-serif; }
 /* overwrite jquery ui autocomplete */
 .ui-autocomplete {top: 3.5em;left: 0.5em;}
 .ui-state-active,
@@ -49,6 +52,7 @@ fieldset {border: none;}
 #autocomplete_search {
   font-size: 1.6rem;
   padding: .7rem;
+  width:21rem;
 }
 .search_button {
   padding: .5rem .7rem;
@@ -146,17 +150,20 @@ $('.search_button').on('click', function(){
 });
 //multi langage trasnform
   $('html').attr('lang', 'ja');
+  $('title').after('<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">');
   $('.js-lang--ja').show();
   $('.js-lang--en').hide();
   $('.js-lang--cn').hide();
   var langType = location.search;
   if(langType.indexOf('lang=en') !== -1){
     $('html').attr('lang', 'en');
+    $('title').after('<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">');
     $('.js-lang--cn').hide();
     $('.js-lang--ja').hide();
     $('.js-lang--en').show();
   } else if(langType.indexOf('lang=cn') !== -1){
     $('html').attr('lang', 'zh-cmn-Hans');
+    $('title').after('<link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">');
     $('.js-lang--cn').show();
     $('.js-lang--ja').hide();
     $('.js-lang--en').hide();

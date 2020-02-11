@@ -47,6 +47,9 @@ body {font-family: sans-serif;}
 }
 ul, ol {list-style-type: none;}
 a {color: inherit;}
+:lang(ja){ font-family: 'Noto Sans JP', sans-serif; }
+:lang(en){ font-family: 'Noto Sans JP', sans-serif; }
+:lang(zh-cmn-Hans){ font-family: 'Noto Sans SC', sans-serif; }
 /* overwrite jquery ui autocomplete */
 .ui-autocomplete {top: 3.5em;left: 0.5em;}
 .ui-state-active,
@@ -76,6 +79,7 @@ fieldset {border: none;}
 #autocomplete_search {
   font-size: 1.6rem;
   padding: .7rem;
+  width:21rem;
 }
 .search_button {
   padding: .5rem .7rem;
@@ -100,9 +104,9 @@ fieldset {border: none;}
 <body>
 <nav>
   <ul class="navi--lang">
-    <li><a href="/pokemon-type/">Japan</a></li>
-    <li><a href="/pokemon-type/?lang=en">English</a></li>
-    <li><a href="/pokemon-type/?lang=cn">Chinese</a></li>
+    <li><a href="/pokemon-type/index.php">Japan</a></li>
+    <li><a href="/pokemon-type/index.php?lang=en">English</a></li>
+    <li><a href="/pokemon-type/index.php?lang=cn">Chinese</a></li>
   </ul>
 </nav>
 <form>
