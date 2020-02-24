@@ -94,9 +94,9 @@ fieldset {border: none;}
   </fieldset>
   <div class="result"></div>
 </form>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="./lib/jquery-ui.min.js"></script>
+<script src="./lib/jquery-ui.min.js" defer></script>
 <script type="text/javascript">
+window.onload = function(){
 // suggest setting
 var dataList = [
   ['フェアリー', 'ふぇありー'],
@@ -169,7 +169,7 @@ $('.search_button').on('click', function(){
     $('.js-lang--en').hide();
   }
 });
-
+}
 </script>
 </body>
 </html>
